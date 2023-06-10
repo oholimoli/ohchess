@@ -68,4 +68,4 @@ print(image_files)
 # outputfile.write(boardsvg)
 # outputfile.close()
 
-generate_svg_gallery(image_files, f"{directory}/{game}.html")
+generate_svg_gallery(image_files, f"{directory}/index.html")
