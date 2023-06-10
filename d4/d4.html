@@ -1,0 +1,148 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>SVG Image Slideshow</title>
+      <style>
+        .slideshow-container {
+          text-align: center;
+          margin-bottom: 20px;
+          position: relative;
+        #   height: 800px;
+        }
+        .slideshow-image {
+          display: block;
+          margin: 0 auto;
+          max-width: 100%;
+          max-height: 600px;
+          vertical-align: middle;
+        }
+        .slideshow-controls {
+          text-align: center;
+          position: relative;
+          margin-top: 10px;
+        }
+        .slideshow-controls a {
+          font-size: 24px;
+          padding: 10px 20px;
+        }
+        .slideshow-list {
+          text-align: center;
+          margin-top: 10px;
+          list-style-type: none;
+          padding: 0;
+        }
+        .slideshow-list li {
+          display: inline-block;
+          margin: 0 5px;
+        }
+        .slideshow-list li a {
+          text-decoration: none;
+          color: #000;
+          font-weight: bold;
+        }
+        .slideshow-list li a.current {
+          color: #f00;
+        }
+        .slideshow-list li.disabled {
+          color: #ccc;
+          pointer-events: none;
+        }
+        .hide {
+          display: none;
+        }
+      </style>
+    </head>
+    <body>
+      
+    <div class="slideshow-container">
+      <img class="slideshow-image" src="1_d4.svg">
+    </div>
+    
+    <div class="slideshow-container">
+      <img class="slideshow-image" src="2_Nf6.svg">
+    </div>
+    
+    <div class="slideshow-container">
+      <img class="slideshow-image" src="3_c4.svg">
+    </div>
+    
+    <div class="slideshow-container">
+      <img class="slideshow-image" src="4_e6.svg">
+    </div>
+    
+      <div class="slideshow-controls">
+        <a class="prev" onclick="plusSlides(-1)" style="color: #000">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)" style="color: #000">&#10095;</a>
+      </div>
+      <ul class="slideshow-list">
+        
+    <li><a href="#" onclick="goToSlide(0)">1_d4</a></li>
+    
+    <li><a href="#" onclick="goToSlide(1)">2_Nf6</a></li>
+    
+    <li><a href="#" onclick="goToSlide(2)">3_c4</a></li>
+    
+    <li><a href="#" onclick="goToSlide(3)">4_e6</a></li>
+    
+      </ul>
+      <script>
+        var slideIndex = 0;
+        var slides = document.getElementsByClassName("slideshow-image");
+        var prevButton = document.getElementsByClassName("prev")[0];
+        var nextButton = document.getElementsByClassName("next")[0];
+        var imageList = document.getElementsByClassName("slideshow-list")[0].getElementsByTagName("a");
+        showSlides(slideIndex);
+
+        function showSlides(n) {
+          slideIndex = n;
+
+          for (var i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+
+          slides[slideIndex].style.display = "block";
+
+          if (slideIndex === 0) {
+            prevButton.style.color = "#ccc";
+          } else {
+            prevButton.style.color = "#000";
+          }
+
+          if (slideIndex === slides.length - 1) {
+            nextButton.style.color = "#ccc";
+          } else {
+            nextButton.style.color = "#000";
+          }
+
+          updateImageList();
+        }
+
+        function plusSlides(n) {
+          var newIndex = slideIndex + n;
+          if (newIndex >= 0 && newIndex < slides.length) {
+            showSlides(newIndex);
+          }
+        }
+
+        function goToSlide(index) {
+          if (index >= 0 && index < slides.length) {
+            showSlides(index);
+          }
+        }
+
+        function updateImageList() {
+          for (var i = 0; i < imageList.length; i++) {
+            if (i === slideIndex) {
+              imageList[i].classList.add("current");
+            } else {
+              imageList[i].classList.remove("current");
+            }
+          }
+        }
+
+        updateImageList();
+      </script>
+    </body>
+    </html>
+    
