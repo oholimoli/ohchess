@@ -10,7 +10,8 @@
 			"extensions": [
 				"jock.svg",
 				"ms-toolsai.jupyter",
-				"ms-python.python"
+				"ms-python.python",
+				"mechatroner.rainbow-csv"
 			]
 		}
 	}

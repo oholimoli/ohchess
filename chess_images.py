@@ -1,17 +1,30 @@
 import os
 import csv
+import json
 import chess.svg
 import chess
 import chess.engine
+import pandas as pd
 
-from ohchess import generate_svg_gallery
+from ohchess import *
 
 # engine = chess.engine.SimpleEngine.popen_uci("/usr/games/stockfish")
 
+
+
 board = chess.Board()
 
-
 game = "d4"
+
+df = pd.read_csv(f"{game}.csv", header=None, names=['Moves'], delimiter=",")
+
+df2 = df.applymap(lambda x: x.replace(" ", "") if isinstance(x, str) else x)
+
+print(df2)
+
+
+exit()
+
 
 directory = game
 

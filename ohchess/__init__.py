@@ -1,2 +1,2 @@
 
-from .ohchess import generate_svg_gallery
+from .ohchess import *

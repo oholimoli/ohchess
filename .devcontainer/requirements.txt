@@ -1,1 +1,6 @@
 chess
+dataclasses-json
+pandas
+jupyterlab
+NetworkX
+matplotlib
